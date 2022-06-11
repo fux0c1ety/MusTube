@@ -2,6 +2,13 @@
 #
 import youtube_dl
 import os
+import music_tag
+
+def tagging(path):
+    MusFile = music_tag.load_file(path)
+    MusFile['title'] = input('Song Title: ')
+    MusFile['artist'] = input('Artist: ')
+    MusFile.save()
 
 def videoid(url):
     if 'youtube.com' in url:
@@ -25,7 +32,7 @@ def main():
     url = input('URL: ').replace("'", "")
     with youtube_dl.YoutubeDL(ydl_opts) as ydl:
         ydl.download([url])
-    print(pathbyid(videoid(url)))
+    tagging(pathbyid(videoid(url)))
 
 
 
