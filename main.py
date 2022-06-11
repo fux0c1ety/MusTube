@@ -1,8 +1,17 @@
 #!/usr/bin/env python
 #
 import youtube_dl
-import sys
+import os
 
+def videoid(url):
+    if 'youtube.com' in url:
+        return url.split('=')[1]
+    elif 'youtu.be' in url:
+        return url.split('/')[-1]
+
+def pathbyid(videoid):
+    fileslist = os.listdir('./')
+    return fileslist[list(map(str.endswith, fileslist, [videoid+'.mp3']*len(fileslist))).index(True)]
 
 def main():
     ydl_opts = {
@@ -13,8 +22,12 @@ def main():
             'preferredquality': '192',
         }],
     }
+    url = input('URL: ').replace("'", "")
     with youtube_dl.YoutubeDL(ydl_opts) as ydl:
-        ydl.download([input('URL: ')])
+        ydl.download([url])
+    print(pathbyid(videoid(url)))
+
+
 
 if __name__=='__main__':
     main()
