@@ -3,6 +3,7 @@
 import youtube_dl
 import os
 import music_tag
+from banners import *
 
 def tagging(path):
     MusFile = music_tag.load_file(path)
@@ -21,6 +22,8 @@ def pathbyid(videoid):
     return fileslist[list(map(str.endswith, fileslist, [videoid+'.mp3']*len(fileslist))).index(True)]
 
 def main():
+    os.system('clear')
+    print(INDEX_BANNER)
     ydl_opts = {
         'format': 'bestaudio/best',
         'postprocessors': [{
