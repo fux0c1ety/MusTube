@@ -40,4 +40,10 @@ def main():
 
 
 if __name__=='__main__':
-    main()
+    while True:
+        try:
+            main()
+            if input('Continue? [Y/n] ').lower()=='n':
+                break
+        except KeyboardInterrupt:
+            break
