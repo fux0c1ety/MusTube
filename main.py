@@ -18,14 +18,16 @@ def videoid(url):
         return url.split('/')[-1]
 
 def pathbyid(videoid):
-    fileslist = os.listdir('./')
-    return fileslist[list(map(str.endswith, fileslist, [videoid+'.mp3']*len(fileslist))).index(True)]
+    path = os.environ['HOME']+'/Music/'
+    fileslist = os.listdir(path)
+    return path+fileslist[list(map(str.endswith, fileslist, [videoid+'.mp3']*len(fileslist))).index(True)]
 
 def main():
     os.system('clear')
     print(INDEX_BANNER)
     ydl_opts = {
         'format': 'bestaudio/best',
+        'outtmpl':'~/Music/%(title)s-%(id)s.%(ext)s',
         'postprocessors': [{
             'key': 'FFmpegExtractAudio',
             'preferredcodec': 'mp3',
