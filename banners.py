@@ -9,6 +9,6 @@ INDEX_BANNER = '''
 \033[34m888       888  "Y88888  88888P' 888   "Y88888 88888P"   "Y8888               
 
   \033[91m  \033[1m           }--{+} Coded By Konstantin {+}--{
-  \033[91m  \033[1m     }----{+} https://github.com/Kostia2004 {+}----{
-  \033[91m  \033[1m }--{+} https://github.com/Kostia2004/MusTube  {+}--{
+  \033[91m  \033[1m     }----{+} https://github.com/fux0c1ety{+}----{
+  \033[91m  \033[1m }--{+} https://github.com/fux0c1ety/MusTube  {+}--{
 '''
